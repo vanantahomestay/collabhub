@@ -1,11 +1,125 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CollabHub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='6' y='6' width='22' height='22' rx='6' fill='%23ff3d9a'/%3E%3Crect x='34' y='6' width='22' height='22' rx='6' fill='%237c4dff'/%3E%3Crect x='6' y='34' width='22' height='22' rx='6' fill='%237c4dff'/%3E%3Crect x='38' y='38' width='22' height='22' rx='6' fill='%23c6ff3d'/%3E%3C/svg%3E">
+<title>collabhere – Brands meet creators</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0f0a1f;--card:#1a1233;--ink:#fff;--muted:#b8aedb;--pink:#ff3d9a;--lime:#c6ff3d;--violet:#7c4dff;--line:#33285c}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+a{color:inherit}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 6%;position:sticky;top:0;background:rgba(15,10,31,.9);backdrop-filter:blur(8px);z-index:5}
+.logo{display:flex;align-items:center;gap:10px;font-weight:600;font-size:22px;letter-spacing:-0.5px}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 15px 'Poppins',sans-serif;padding:12px 24px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--violet));color:#fff;text-decoration:none}
+.btn.ghost{background:none;border:2px solid var(--line)}
+.hero{text-align:center;padding:80px 6% 60px;background:radial-gradient(circle at 50% 0,#3a1b7a 0,transparent 60%)}
+.hero h1{font-size:clamp(36px,7vw,72px);font-weight:800;line-height:1.1}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--pink),var(--lime));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:560px;margin:18px auto 30px;color:var(--muted);font-size:18px}
+.hero .btn{margin:6px}
+section{padding:60px 6%}
+h2{font-size:32px;text-align:center;margin-bottom:30px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:1000px;margin:auto}
+.step{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.step b{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--lime);color:#111;margin-bottom:12px}
+.step p{color:var(--muted);font-size:15px}
+.tabs{display:flex;justify-content:center;gap:10px;margin-bottom:24px}
+.tab{padding:10px 22px;border-radius:999px;border:2px solid var(--line);background:none;color:var(--ink);font:600 15px 'Poppins',sans-serif;cursor:pointer}
+.tab.on{background:var(--lime);color:#111;border-color:var(--lime)}
+form{max-width:620px;margin:auto;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:28px;display:none}
+form.on{display:block}
+label{display:block;font-size:13px;color:var(--muted);margin:14px 0 6px}
+input,select{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#0f0a1f;color:var(--ink);font:15px 'Poppins',sans-serif}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+h3{margin-top:22px;font-size:16px;color:var(--lime)}
+.check{display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-size:14px;color:var(--muted)}
+.check input{width:auto;margin-top:5px}
+form .btn{width:100%;margin-top:22px}
+.ok{display:none;max-width:620px;margin:20px auto 0;text-align:center;padding:18px;border-radius:20px;background:#1d3a1a;color:var(--lime)}
+footer{text-align:center;padding:30px;color:var(--muted);font-size:14px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <h1>CollabHub is live!</h1>
+<nav><div class="logo"><svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="6" width="22" height="22" rx="6" fill="#ff3d9a"/><rect x="34" y="6" width="22" height="22" rx="6" fill="#7c4dff"/><rect x="6" y="34" width="22" height="22" rx="6" fill="#7c4dff"/><rect x="38" y="38" width="22" height="22" rx="6" fill="#c6ff3d"/></svg>collabhere</div><a class="btn ghost" href="#join">Log in (soon)</a></nav>
+
+<div class="hero">
+<h1>Where brands meet <em>creators</em></h1>
+<p>Get paid for collabs you’ll actually love. Brands find the right influencers. Influencers find paid work. Simple.</p>
+<a class="btn" href="#join" onclick="show('inf')">I’m an influencer</a>
+<a class="btn ghost" href="#join" onclick="show('brand')">I’m a brand</a>
+</div>
+
+<section>
+<h2>How it works</h2>
+<div class="steps">
+<div class="step"><b>1</b><h3 style="margin:0 0 6px;color:#fff">Sign up</h3><p>Create your profile in a minute. It’s free.</p></div>
+<div class="step"><b>2</b><h3 style="margin:0 0 6px;color:#fff">Connect</h3><p>Brands pick creators who fit their niche, city and budget.</p></div>
+<div class="step"><b>3</b><h3 style="margin:0 0 6px;color:#fff">Collab</h3><p>Our team sets up both sides and fixes the dates for you.</p></div>
+</div>
+</section>
+
+<section id="join">
+<h2>Join collabhere</h2>
+<div class="tabs">
+<button class="tab on" id="t-inf" onclick="show('inf')">Influencer</button>
+<button class="tab" id="t-brand" onclick="show('brand')">Brand</button>
+</div>
+
+<form id="f-inf" class="on" onsubmit="done(event)">
+<label>Full name</label><input required>
+<label>Instagram ID</label><input required placeholder="@yourhandle">
+<div class="row">
+<div><label>Email</label><input type="email" required></div>
+<div><label>Mobile / WhatsApp</label><input type="tel" required></div>
+</div>
+<label>Base location (city)</label><input required>
+<label>Willing to travel</label>
+<select required><option value="">Choose…</option><option>My city only</option><option>Within my state</option><option>Anywhere in India</option></select>
+<label>Your niche</label>
+<select required><option value="">Choose…</option><option>Fashion</option><option>Beauty</option><option>Food</option><option>Travel</option><option>Fitness</option><option>Tech</option><option>Lifestyle</option><option>Gaming</option><option>Comedy</option><option>Education</option><option>Other</option></select>
+<h3>Your prices (₹)</h3>
+<div class="row">
+<div><label>Reel</label><input type="number" min="0"></div>
+<div><label>Post</label><input type="number" min="0"></div>
+<div><label>Story</label><input type="number" min="0"></div>
+<div><label>Combo</label><input type="number" min="0"></div>
+</div>
+<label>On-location shoot</label><input type="number" min="0">
+<div class="check"><input type="checkbox" required id="agree"><label for="agree" style="margin:0">I agree to pay a 5% commission to collabhere on every successful collab.</label></div>
+<button class="btn">Join as influencer</button>
+</form>
+
+<form id="f-brand" onsubmit="done(event)">
+<label>Brand name</label><input required>
+<label>Category</label>
+<select required><option value="">Choose…</option><option>Fashion &amp; Apparel</option><option>Beauty &amp; Skincare</option><option>Food &amp; Beverage</option><option>Travel &amp; Hospitality</option><option>Fitness &amp; Wellness</option><option>Tech &amp; Gadgets</option><option>Home &amp; Lifestyle</option><option>Other</option></select>
+<label>Email</label><input type="email" required>
+<label>Contact number</label><input type="tel" required>
+<button class="btn">Join as brand</button>
+</form>
+
+<div class="ok" id="ok">Thanks! This is a preview. Saving your details comes in the next step.</div>
+</section>
+
+<footer>© 2026 collabhere. Made in India.</footer>
+
+<script>
+function show(w){
+  document.getElementById('f-inf').classList.toggle('on',w==='inf');
+  document.getElementById('f-brand').classList.toggle('on',w==='brand');
+  document.getElementById('t-inf').classList.toggle('on',w==='inf');
+  document.getElementById('t-brand').classList.toggle('on',w==='brand');
+  document.getElementById('ok').style.display='none';
+}
+function done(e){
+  e.preventDefault();
+  document.getElementById('ok').style.display='block';
+  e.target.reset();
+}
+</script>
 </body>
 </html>
